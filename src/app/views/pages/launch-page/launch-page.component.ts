@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as cityData from '../../../../assets/openWeatherMapCities.json';
 
 @Component({
   selector: 'app-launch-page',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LaunchPageComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
+    console.log(cityData);
+
   }
 
 }
+

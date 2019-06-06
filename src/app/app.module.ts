@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LaunchPageComponent } from './views/pages/launch-page/launch-page.component';
@@ -11,6 +11,7 @@ import { DailyDetailPageComponent } from './views/pages/daily-detail-page/daily-
 import { HourlyDetailPageComponent } from './views/pages/hourly-detail-page/hourly-detail-page.component';
 import { ChartDetailPageComponent } from './views/pages/chart-detail-page/chart-detail-page.component';
 import { MapPageComponent } from './views/pages/map-page/map-page.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MapPageComponent } from './views/pages/map-page/map-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

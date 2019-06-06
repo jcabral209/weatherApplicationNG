@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
-import { ICoord } from '../interfaces/data-in-spec';
+import { DataInSpec } from '../interfaces/data-in-spec';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class GetWeatherService {
   private appKey = '4109ffc3fcbdb1d5f8c9711fceac0e39';
   private weatherNow = 'https://api.openweathermap.org/data/2.5/weather?q=';
 
-  private localWeather: ICoord;
+  private localWeather: DataInSpec;
   private nfo: any;
 
   constructor(
@@ -29,13 +30,27 @@ export class GetWeatherService {
           x => {
             console.log('This is the X OBJECT', x);
             this.nfo = x;
-            console.log(this.nfo.coord.lat);
+            console.log('TEST +++++====>>>>>', x);
             this.localWeather = {
-              lat: this.nfo.coord.lat,
-              lon: this.nfo.coord.lon
+                cityName: this.nfo.name,
+                windSpeed: this.nfo.wind.speed,
+                humidity: this.nfo.main.humidity,
+                lat: this.nfo.coord.lat,
+                lon: this.nfo.coord.lon,
+                temp: this.nfo.main.temp,
+                icon: this.nfo.weather[0].icon,
+                descriptionWeather: this.nfo.weather[0].description,
             };
+            console.log('CityName =========>', this.localWeather.cityName);
+            console.log('Wind ===========>>>>>>', this.localWeather.windSpeed);
+            console.log('Humidity =============>>>>>', this.localWeather.humidity);
+            console.log(this.localWeather.temp);
             console.log(this.localWeather.lat);
             console.log(this.localWeather.lon);
+            console.log(this.localWeather.icon);
+            console.log('============>>>>>', this.localWeather.descriptionWeather);
+
+
             resolve();
           },
           msg => {
