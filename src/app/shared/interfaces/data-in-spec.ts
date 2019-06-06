@@ -1,11 +1,11 @@
 export interface DataInSpec {
 
-    info: any = {};
+    info: any;
     cityName: string;
     main: DataInSpec;
     windSpeed: number;
     humidity: number;
-    coord: Coord;
+    coord: ICoord;
     temp: number;
     wind: Wind;
     sys: Sys;
@@ -14,7 +14,8 @@ export interface DataInSpec {
     descriptionWeather: string;
 }
 
-export interface Coord {
+export interface ICoord {
+
     lat: number;
     lon: number;
 }

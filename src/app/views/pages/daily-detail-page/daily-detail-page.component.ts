@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetWeatherService } from 'src/app/shared/services/get-weather.service';
 
 @Component({
   selector: 'app-daily-detail-page',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DailyDetailPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private weatherService: GetWeatherService) { }
 
   ngOnInit() {
+    this.weatherService.getURLDataP('Modesto');
   }
 
 }
