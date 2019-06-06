@@ -24,10 +24,11 @@ export class GetDataService {
   descriptionWeather: string;
 
   constructor(private dataService: DataService) { }
+  
   ngOnInit() {
 
     this.citySearch = 'Stockton';
-   }
+  }
 
 return this.dataService
   .getURL(this.weatherNow + this.citySearch + '&appid=' + this.appKey);
