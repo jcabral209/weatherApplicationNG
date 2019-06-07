@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetWeatherService } from 'src/app/shared/services/get-weather.service';
 
+
 @Component({
   selector: 'app-daily-detail-page',
   templateUrl: './daily-detail-page.component.html',

@@ -1,21 +1,23 @@
 export interface DataInSpec {
 
-    // localWeather: {};
-    // cityId: number;
+
+    cityId: number;
     cityName: string;
-    // main: Main;
-    windSpeed: number;
+    windSpeed: Wind;
+    windDeg: Wind;
+    windGust: Wind;
     humidity: Main;
     lat: Coord;
     lon: Coord;
-    temp: number;
-    // wind: Wind;
-    // visibility: number;
-    // sys: Sys;
-    icon: string;
-    // weather: Weather[];
-    descriptionWeather: string;
-    // timezone: number;
+    temp: Main;
+    pressure: Main;
+    temp_min: Main;
+    temp_max: Main;
+    visibility: number;
+    weatherIcon: Weather;
+    weatherDescription: Weather;
+    timezone: number;
+    country: Sys;
 }
 
 export interface Main {

@@ -3,7 +3,6 @@ import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
 import { DataInSpec } from '../interfaces/data-in-spec';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -32,23 +31,35 @@ export class GetWeatherService {
             this.nfo = x;
             console.log('TEST +++++====>>>>>', x);
             this.localWeather = {
+                cityId: this.nfo.id,
                 cityName: this.nfo.name,
+                country: this.nfo.sys.country,
+                timezone: this.nfo.timezone,
                 windSpeed: this.nfo.wind.speed,
+                windDeg: this.nfo.wind.deg,
+                windGust: this.nfo.wind.gust,
                 humidity: this.nfo.main.humidity,
                 lat: this.nfo.coord.lat,
                 lon: this.nfo.coord.lon,
+                weatherIcon: this.nfo.weather[0].icon,
+                weatherDescription: this.nfo.weather[0].description,
+                visibility: this.nfo.visibility,
+                pressure: this.nfo.main.pressure,
+                temp_min: this.nfo.main.temp_min,
+                temp_max: this.nfo.main.temp_max,
                 temp: this.nfo.main.temp,
-                icon: this.nfo.weather[0].icon,
-                descriptionWeather: this.nfo.weather[0].description,
+
             };
+
+            console.log('CityID =========>', this.localWeather.cityId);
             console.log('CityName =========>', this.localWeather.cityName);
             console.log('Wind ===========>>>>>>', this.localWeather.windSpeed);
             console.log('Humidity =============>>>>>', this.localWeather.humidity);
             console.log(this.localWeather.temp);
             console.log(this.localWeather.lat);
             console.log(this.localWeather.lon);
-            console.log(this.localWeather.icon);
-            console.log('============>>>>>', this.localWeather.descriptionWeather);
+            console.log(this.localWeather.weatherIcon);
+            console.log('============>>>>>', this.localWeather.weatherDescription);
 
 
             resolve();
